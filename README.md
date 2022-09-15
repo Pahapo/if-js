@@ -1,1 +1,1 @@
-# ttt
+Intellect Fox - modul JavaScript
