@@ -1,53 +1,35 @@
 // ------------- part 6 ----------------
 
-let user = 'John Doe';
-console.log(user);
+const sum = (a) => {
+  return function (b) {
+    return a + b;
+  };
+};
 
-let student = 'Pavel';
-console.log(student);
-
-user = student;
-console.log(user);
+console.log(sum(5)(2)); // 7
 
 // ------------- part 7 ----------------
 
-let test = 1;
-test++;
+const colors = ["magenta", "cyan", "firebrick", "springgreen", "skyblue"];
 
-test += '1';
-console.log(test);
+const setColor = (event) => {
+  for (let i = 0; i < colors.length; i++) {
+    if (event.target.style.color === colors[i]) {
+      return event.target.style.color === colors[colors.length - 1] ? colors[0] : colors[i];
+    }
+  }
+};
 
-test -= 1;
-console.log(test);
+const text1 = document.querySelector("#text1");
+const text2 = document.querySelector("#text2");
+const text3 = document.querySelector("#text3");
 
-test = Boolean(test);
-console.log(test);
-
-// ------------- part 8 ----------------
-
-let array1 = [2, 3, 5, 8];
-let work = 1;
-
-for (let i = 0; i < array1.length; i++) {
-    work *= array1[i];
-}
-
-console.log(work);
-
-// ------------- part 9 ----------------
-
-let array2 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < array2.length; i++) {
-    if (array2[i] > 5 && array2[i] < 10)
-        console.log(array2[i]); 
-}
-
-// ------------- part 10 ----------------
-
-let array3 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < array3.length; i++) {
-    if (array3[i] % 2 == 0)
-        console.log(array3[i]); 
-}
+text1.addEventListener("click", (event) => {
+  event.target.style.color = setColor(event);
+});
+text2.addEventListener("click", (event) => {
+  event.target.style.color = setColor(event);
+});
+text3.addEventListener("click", (event) => {
+  event.target.style.color = setColor(event);
+});
