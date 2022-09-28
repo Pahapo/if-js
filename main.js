@@ -1,6 +1,6 @@
 const logger = (fun) => console.log(fun);
 
-// ------------- part 6 ----------------
+// ------------- part 6 ---------------- 
 
 const palindrome = (word) => {
   let lastLater = word.length - 1;
