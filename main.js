@@ -1,53 +1,39 @@
+// ------------- part 5 ----------------
+
+const convDate = (date) => {
+  const str = String(date);
+
+  const re = /(?<year>\d+)-(?<month>\d+)-(?<day>\d+)/;
+
+  return str.replace(re, "$<day>.$<month>.$<year>");
+};
+
+const date = "2020-11-26";
+logger(convDate(date));
+
 // ------------- part 6 ----------------
 
-let user = 'John Doe';
-console.log(user);
+import { data } from "../scripts/db.js";
 
-let student = 'Pavel';
-console.log(student);
+const search = (word) => {
+  const str = String(word).trim().toLocaleLowerCase();
+  let result = "";
 
-user = student;
-console.log(user);
+  for (let i = 0; i < data.length; i++) {
+    for (let value of Object.values(data[i])) {
+      let newStr = value.toLocaleLowerCase();
+      if (str == newStr) {
+        for (let values of Object.values(data[i])) {
+          result += `${values}, `;
+        }
+      }
+    }
+    result = result.slice(0, -2) + "\n";
+  }
 
-// ------------- part 7 ----------------
+  return result == "" ? 0 : result.trim();
+};
 
-let test = 1;
-test++;
-
-test += '1';
-console.log(test);
-
-test -= 1;
-console.log(test);
-
-test = Boolean(test);
-console.log(test);
-
-// ------------- part 8 ----------------
-
-let array1 = [2, 3, 5, 8];
-let work = 1;
-
-for (let i = 0; i < array1.length; i++) {
-    work *= array1[i];
-}
-
-console.log(work);
-
-// ------------- part 9 ----------------
-
-let array2 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < array2.length; i++) {
-    if (array2[i] > 5 && array2[i] < 10)
-        console.log(array2[i]); 
-}
-
-// ------------- part 10 ----------------
-
-let array3 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < array3.length; i++) {
-    if (array3[i] % 2 == 0)
-        console.log(array3[i]); 
-}
+logger(search("Spain"));
+logger(search("Berlin"));
+logger(search("King Kong Hostel"));
