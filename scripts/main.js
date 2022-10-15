@@ -1,3 +1,6 @@
+import { hotels } from "../scripts/db.js";
+const logger = (fun) => console.log(fun);
+
 // -------  HOMEWORK 6 (Array) ---------
 // ------------- part 5 ----------------
 
