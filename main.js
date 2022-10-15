@@ -1,53 +1,67 @@
+// -------  HOMEWORK 6 (Array) ---------
+// ------------- part 5 ----------------
+
+export const palindrome = (word) => (word === word.split("").reverse().join("") ? 1 : 0);
+
+logger(palindrome("шалаш"));
+logger(palindrome("анна"));
+logger(palindrome("телефон");
+logger(palindrome("часы");
+
 // ------------- part 6 ----------------
 
-let user = 'John Doe';
-console.log(user);
+export const search = (str) => {
+  const chooseHotels = hotels.filter((item) => item.name === str || item.city === str || item.country === str);
+  let result = chooseHotels.reduce((acc, item) => {
+    acc += `${item.name}, ${item.city}, ${item.country}  `;
+    return acc;
+  }, "");
+  return result.split("  ").slice(0, -1);
+};
 
-let student = 'Pavel';
-console.log(student);
-
-user = student;
-console.log(user);
+logger(search("Virgin Hotel"));
+logger(search("Rome"));
+logger(search("Germany"));
 
 // ------------- part 7 ----------------
+export const uniqueCountries = (someHotels) => {
+  const countryCity = {};
 
-let test = 1;
-test++;
+  someHotels.forEach((item) => {
+    if (countryCity.hasOwnProperty(item.country)) {
+      countryCity[item.country].push(item.city);
+    } else {
+      countryCity[item.country] = [item.city];
+    }
+  });
 
-test += '1';
-console.log(test);
+  return countryCity;
+};
 
-test -= 1;
-console.log(test);
+logger(uniqueCountries(hotels));
 
-test = Boolean(test);
-console.log(test);
+// ------------ *level UP ---------------
 
-// ------------- part 8 ----------------
+export const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
+  const arrMonth = [];
+  for (let i = 0; i < daysInMonth; i++) {
+    arrMonth[i] = i + 1;
+  }
 
-let array1 = [2, 3, 5, 8];
-let work = 1;
+  let lastMonth;
+  (daysInMonth + dayOfWeek) % daysInWeek == 0 ? (lastMonth = 0) : (lastMonth = daysInWeek - ((daysInMonth + dayOfWeek) % daysInWeek));
 
-for (let i = 0; i < array1.length; i++) {
-    work *= array1[i];
-}
+  const arrCalendarMonth = [...arrMonth.slice(-dayOfWeek), ...arrMonth, ...arrMonth.slice(0, lastMonth)];
 
-console.log(work);
+  const result = [];
 
-// ------------- part 9 ----------------
+  for (let i = 0, j = 0; i < arrCalendarMonth.length; i = i + daysInWeek, j++) {
+    result[j] = [...arrCalendarMonth.slice(i, i + daysInWeek)];
+  }
 
-let array2 = [2, 5, 8, 15, 0, 6, 20, 3];
+  return result;
+};
 
-for (let i = 0; i < array2.length; i++) {
-    if (array2[i] > 5 && array2[i] < 10)
-        console.log(array2[i]); 
-}
-
-// ------------- part 10 ----------------
-
-let array3 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < array3.length; i++) {
-    if (array3[i] % 2 == 0)
-        console.log(array3[i]); 
-}
+logger(getCalendarMonth(30, 7, 4));
+logger(getCalendarMonth(30, 5, 8));
+logger(getCalendarMonth(15, 8, 4));
