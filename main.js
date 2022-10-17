@@ -9,27 +9,18 @@ const sum = (a) => {
 console.log(sum(5)(2)); // 7
 
 // ------------- part 7 ----------------
-
 const colors = ["magenta", "cyan", "firebrick", "springgreen", "skyblue"];
+const texts = document.querySelectorAll(".js-text");
 
-const setColor = (event) => {
+const changeStyle = (event) => {
+  const text = event.target;
   for (let i = 0; i < colors.length; i++) {
-    if (event.target.style.color === colors[i]) {
-      return event.target.style.color === colors[colors.length - 1] ? colors[0] : colors[i];
+    if (text.style.color === colors[i]) {
+      text.style.color === colors[colors.length - 1] ? (text.style.color = colors[0]) : (text.style.color = colors[i]);
     }
   }
 };
 
-const text1 = document.querySelector("#text1");
-const text2 = document.querySelector("#text2");
-const text3 = document.querySelector("#text3");
-
-text1.addEventListener("click", (event) => {
-  event.target.style.color = setColor(event);
-});
-text2.addEventListener("click", (event) => {
-  event.target.style.color = setColor(event);
-});
-text3.addEventListener("click", (event) => {
-  event.target.style.color = setColor(event);
+texts.forEach((text) => {
+  text.addEventListener("click", changeStyle);
 });
