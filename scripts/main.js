@@ -4,7 +4,7 @@ const logger = (fun) => console.log(fun);
 // -------  HOMEWORK 6 (Array) ---------
 // ------------- part 5 ----------------
 
-export const palindrome = (word) => (word === word.split("").reverse().join("") ? 1 : 0);
+export const palindrome = (word) => (word === word.split("").reverse().join("") ? true : false);
 
 logger(palindrome("шалаш"));
 logger(palindrome("анна"));
@@ -46,6 +46,7 @@ logger(uniqueCountries(hotels));
 // ------------ *level UP ---------------
 
 export const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
+  if (dayOfWeek > daysInMonth || dayOfWeek >= daysInWeek) return false;
   const arrMonth = [];
   for (let i = 0; i < daysInMonth; i++) {
     arrMonth[i] = i + 1;
