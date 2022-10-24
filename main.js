@@ -6,14 +6,14 @@ const palindrome = (word) => {
   let lastLater = word.length - 1;
 
   for (let i = 0; i < word.length; i++) {
-    if (word.charAt(i) !== word.charAt(lastLater)) return 0;
+    if (word.charAt(i) !== word.charAt(lastLater)) return false;
 
     lastLater--;
 
     if (word.length % 2 === 0) {
-      if (i === word.length / 2) return 1;
+      if (i === word.length / 2) return true;
     } else {
-      if (i === word.length / 2 - 0.5) return 1;
+      if (i === word.length / 2 - 0.5) return true;
     }
   }
 };
@@ -26,8 +26,8 @@ logger(palindrome("часы"));
 
 // ------------- part 7 ----------------
 
-const min = (a, b) => (a < b ? a : 0);
-const max = (a, y) => (a > y ? a : 0);
+const min = (a, b) => (a < b ? a : false);
+const max = (a, y) => (a > y ? a : false);
 
 logger(min(2, 10));
 logger(min(43, 19));
