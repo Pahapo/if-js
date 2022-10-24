@@ -1,53 +1,62 @@
-// ------------- part 6 ----------------
+const logger = (fun) => console.log(fun);
 
-let user = 'John Doe';
-console.log(user);
+// ------------- part 6 ---------------- 
 
-let student = 'Pavel';
-console.log(student);
+const palindrome = (word) => {
+  let lastLater = word.length - 1;
 
-user = student;
-console.log(user);
+  for (let i = 0; i < word.length; i++) {
+    if (word.charAt(i) !== word.charAt(lastLater)) return false;
+
+    lastLater--;
+
+    if (word.length % 2 === 0) {
+      if (i === word.length / 2) return true;
+    } else {
+      if (i === word.length / 2 - 0.5) return true;
+    }
+  }
+};
+
+logger(palindrome("шалаш"));
+logger(palindrome("анна"));
+
+logger(palindrome("телефон"));
+logger(palindrome("часы"));
 
 // ------------- part 7 ----------------
 
-let test = 1;
-test++;
+const min = (a, b) => (a < b ? a : false);
+const max = (a, y) => (a > y ? a : false);
 
-test += '1';
-console.log(test);
+logger(min(2, 10));
+logger(min(43, 19));
+logger(min(22, 22));
 
-test -= 1;
-console.log(test);
-
-test = Boolean(test);
-console.log(test);
+logger(max(2, 10));
+logger(max(43, 19));
+logger(max(22, 22));
 
 // ------------- part 8 ----------------
 
-let array1 = [2, 3, 5, 8];
-let work = 1;
+let arr = [12, 80, 14, 1010, 16, 0, 18, 90, 2, 100];
+let str = [];
 
-for (let i = 0; i < array1.length; i++) {
-    work *= array1[i];
+for (let i = 0; i < arr.length; i++) {
+  arr[i] = arr[i].toString();
+
+  if (arr[i].includes(0)) {
+    str = arr[i].split("");
+
+    for (let j = 0; j < str.length; j++) {
+      if (str[j] == 0) {
+        str[j] = "zero";
+      }
+    }
+    arr[i] = str.join("");
+  } else {
+    arr[i] = Number(arr[i]);
+  }
 }
 
-console.log(work);
-
-// ------------- part 9 ----------------
-
-let array2 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < array2.length; i++) {
-    if (array2[i] > 5 && array2[i] < 10)
-        console.log(array2[i]); 
-}
-
-// ------------- part 10 ----------------
-
-let array3 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < array3.length; i++) {
-    if (array3[i] % 2 == 0)
-        console.log(array3[i]); 
-}
+logger(arr);
