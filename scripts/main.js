@@ -8,8 +8,8 @@ export const palindrome = (word) => (word === word.split("").reverse().join("") 
 
 logger(palindrome("шалаш"));
 logger(palindrome("анна"));
-logger(palindrome("телефон");
-logger(palindrome("часы");
+logger(palindrome("телефон"));
+logger(palindrome("часы"));
 
 // ------------- part 6 ----------------
 
