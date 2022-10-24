@@ -1,32 +1,26 @@
-const obj1 = {
-  a: "a",
-  b: {
-    a: "a",
-    b: "b",
-    c: {
-      a: 1,
-    },
+export const studentsData = [
+  {
+    firstName: "Василий",
+    lastName: "Петров",
+    admissionYear: 2019,
+    courseName: "Java",
   },
-};
-const obj2 = {
-  b: {
-    c: {
-      a: 1,
-    },
-    b: "b",
-    a: "a",
+  {
+    firstName: "Иван",
+    lastName: "Иванов",
+    admissionYear: 2018,
+    courseName: "JavaScript",
   },
-  a: "a",
-};
-const obj3 = {
-  a: {
-    c: {
-      a: "a",
-    },
-    b: "b",
-    a: "a",
+  {
+    firstName: "Александр",
+    lastName: "Федоров",
+    admissionYear: 2017,
+    courseName: "Python",
   },
-  b: "b",
-};
-
-export { obj1, obj2, obj3 };
+  {
+    firstName: "Николай",
+    lastName: "Петров",
+    admissionYear: 2019,
+    courseName: "Android",
+  },
+];
