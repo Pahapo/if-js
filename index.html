@@ -11,17 +11,22 @@
 
   <body>
     <div class="homes">
-      <div class="container">
-        <div class="title">
-          <h1>Homes guests loves</h1>
-        </div>
-        <div class="homes__items">
-          <img class="btn__next" src="src/img/arrow.png" />
+        <div class="container">
+          <div class="new__container">
+            <div class="title">
+              <h1 class="line2">Homes guests loves</h1>
+            </div>
+            <div class="swiper mySwiper">
+              <div class="homes__items swiper-wrapper"></div>
+            </div>
+            <div class="swiper-button-next">
+              <img class="btn__next" src="src/img/arrow.png" alt="" />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <script type="module" src="src/js/array.js"></script>
+    <script src="src/js/jquery-3.6.0.min.js"></script>
+    <script src="src/js/swiper-bundle.min.js"></script>
     <script type="module" src="src/js/main.js"></script>
   </body>
 </html>
