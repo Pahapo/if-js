@@ -365,10 +365,33 @@ input::placeholder {
 .page__adv {
   display: flex;
   justify-content: center;
+  margin-right: 17px;
 }
 
 .page__adv img {
-  margin: 0 8.44px;
+  margin: 0 16px;
+}
+
+.arrow__down {
+  text-align: center;
+  display: none;
+  animation: down 3s infinite;
+}
+
+.arrow__down img {
+  width: 25px;
+}
+
+@keyframes down {
+  5% {
+    transform: translateY(0px);
+  }
+  20% {
+    transform: translateY(10px);
+  }
+  35% {
+    transform: translateY(0px);
+  }
 }
 
 .advantages__title {
@@ -390,6 +413,7 @@ input::placeholder {
 
 .advantages__items,
 .homes__items,
+.av-hotels__items,
 .destinations__items,
 .hostel__items,
 .signup__mobile,
@@ -418,8 +442,17 @@ input::placeholder {
   right: 0;
 }
 
-.homes {
+.homes,
+.av-hotels {
   background-color: #eaf0f9;
+}
+
+.av-hotels {
+  display: none;
+}
+
+.av-hotels .container {
+  margin-top: 0;
 }
 
 .new__container {
@@ -432,6 +465,7 @@ input::placeholder {
 }
 
 .homes__items,
+.av-hotels__items,
 .destinations__items,
 .hostel__items {
   position: relative;
@@ -586,6 +620,7 @@ input::placeholder {
 
 .hostel .container {
   padding: 0;
+  margin-bottom: 0;
 }
 
 .hostel__item {
@@ -882,6 +917,10 @@ input::placeholder {
     margin-bottom: 32px;
   }
   .homes__items .btn__next {
+    right: -14px;
+    top: 64px;
+  }
+  .av-hotels__items .btn__next {
     right: -14px;
     top: 64px;
   }
