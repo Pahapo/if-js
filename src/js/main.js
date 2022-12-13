@@ -1,13 +1,10 @@
-const AvHotels = document.querySelector(".av-hotels__items");
-const btnSearch = document.querySelector(".search__btn");
+/* Home guests loves*/
+const cards = document.querySelector(".homes__items");
 
-btnSearch.addEventListener("click", () => {
-  document.querySelector(".av-hotels").style.display = "block";
-  document.querySelector(".arrow__down").style.display = "block";
-  const value = document.getElementById("country-info__input").value;
-  let url = `https://if-student-api.onrender.com/api/hotels?search=${value}`;
-
-  fetch(url, {
+if (sessionStorage.getItem("cards")) {
+  cards.insertAdjacentHTML("afterbegin", sessionStorage.getItem("cards"));
+} else {
+  fetch("https://if-student-api.onrender.com/api/hotels/popular", {
     method: "GET",
   })
     .then((response) => {
@@ -17,30 +14,22 @@ btnSearch.addEventListener("click", () => {
       return response.json();
     })
     .then((data) => {
-      const hotelsItems = data
+      const cardItems = data
         .map(({ name, city, country, imageUrl }) => {
           return `<div class="homes__item swiper-slide">
-        <img class="homes__img" src="${imageUrl}" />
-        <div class="homes__text">
-          <h2>${name}</h2>
-        </div>
-        <div class="homes__location">
-          <h2>${city}, ${country}</h2>
-        </div>
-      </div>`;
+      <img class="homes__img" src="${imageUrl}" />
+      <div class="homes__text">
+        <h2>${name}</h2>
+      </div>
+      <div class="homes__location">
+        <h2>${city}, ${country}</h2>
+      </div>
+    </div>`;
         })
         .join("");
-      AvHotels.insertAdjacentHTML("afterbegin", hotelsItems);
+      cards.insertAdjacentHTML("afterbegin", cardItems);
+
+      sessionStorage.setItem("cards", cardItems);
     })
     .catch((err) => console.error(err));
-});
-
-let swiper = new Swiper(".mySwiper", {
-  loop: true, // бесконечный слайдер
-  spaceBetween: 30,
-  slidesPerView: 2, // количество слайдов для показа
-  navigation: {
-    nextEl: ".swiper-button-next",
-  },
-});
-
+}
