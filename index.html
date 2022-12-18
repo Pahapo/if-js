@@ -5,28 +5,188 @@
     <title>TripHouse</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- for mobile -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="stylesheet" href="src/css/style.css" />
   </head>
-
   <body>
-    <div class="homes">
-        <div class="container">
-          <div class="new__container">
-            <div class="title">
-              <h1 class="line2">Homes guests loves</h1>
+    <header class="header">
+      <div class="header__nav">
+        <a href="#" class="logo">
+          <img src="src/img/logo.svg" alt="logo" />
+        </a>
+        <ul class="nav__items">
+          <li class="nav__item">
+            <a href="#"><h2 class="selected__text">Stays</h2></a>
+          </li>
+          <li class="nav__item">
+            <a href="#"><h2>Attractions</h2></a>
+          </li>
+          <li class="nav__item"><img src="src/img/night.svg" alt="day/night" /></li>
+          <a href="signin.html" class="nav__item"><img src="src/img/account.svg" alt="account" /></a>
+          <li class="nav__item"><img src="src/img/menu.svg" alt="menu" /></li>
+        </ul>
+      </div>
+      <div class="container">
+        <div class="header__page">
+          <div class="page__text">
+            <p>Discover stays<br />to live, work or just relax</p>
+          </div>
+          <div class="page__search">
+            <div class="search__title">
+              <h4>Your destination or hotel name</h4>
+              <h4>Check in — Check out</h4>
             </div>
-            <div class="swiper mySwiper">
-              <div class="homes__items swiper-wrapper"></div>
+            <div class="search__block">
+              <div class="search">
+                <input type="text" class="country-info__input" placeholder="New York" />
+                <input type="text" id="travel-info__input" placeholder="Tue 15 Sept — Sat 19 Sept" value="" />
+                <input type="text" id="people-info__input" placeholder="2 Adults — 0 Children — 1 Room" value="" />
+              </div>
+
+              <div class="search__btn" id="search__btn1">
+                <input type="button" value="Search" />
+              </div>
+
+              <div class="calendar__block hidden">
+                <div class="calendar__items">
+                  <!--js code-->
+                </div>
+                <img class="btn-calendar__prev" src="src/img/arrow-left__calendar.png" alt="" />
+                <img class="btn-calendar__next" src="src/img/arrow-right__calendar.png" alt="" />
+              </div>
+
+              <div class="people__info hidden">
+                <div class="count__people__items">
+                  <div class="count__people__item">
+                    <p>Adults</p>
+                    <div class="count__people__block">
+                      <svg class="less-people" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="29" height="29" fill="white" stroke="#3077C6" />
+                        <path d="M19.3242 16.2783H10.5176V14.9512H19.3242V16.2783Z" fill="#3077C6" />
+                      </svg>
+                      <p id="count__people">2</p>
+                      <svg class="more-people" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="29" height="29" fill="white" stroke="#3077C6" />
+                        <path
+                          d="M16.2822 15.1357H19.8506V16.6738H16.2822V20.7168H14.6475V16.6738H11.0791V15.1357H14.6475V11.4004H16.2822V15.1357Z"
+                          fill="#3077C6"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="count__people__item">
+                    <p>Children</p>
+                    <div class="count__people__block">
+                      <svg
+                        class="less-people children-less-js"
+                        width="30"
+                        height="30"
+                        viewBox="0 0 30 30"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect x="0.5" y="0.5" width="29" height="29" fill="white" stroke="#CECECE" />
+                        <path d="M19.3242 16.2783H10.5176V14.9512H19.3242V16.2783Z" fill="#CECECE" />
+                      </svg>
+                      <p id="count__people">0</p>
+                      <svg
+                        class="more-people children-more-js"
+                        width="30"
+                        height="30"
+                        viewBox="0 0 30 30"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect x="0.5" y="0.5" width="29" height="29" fill="white" stroke="#3077C6" />
+                        <path
+                          d="M16.2822 15.1357H19.8506V16.6738H16.2822V20.7168H14.6475V16.6738H11.0791V15.1357H14.6475V11.4004H16.2822V15.1357Z"
+                          fill="#3077C6"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="count__people__item">
+                    <p>Rooms</p>
+                    <div class="count__people__block">
+                      <svg class="less-people" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="29" height="29" fill="white" stroke="#CECECE" />
+                        <path d="M19.3242 16.2783H10.5176V14.9512H19.3242V16.2783Z" fill="#CECECE" />
+                      </svg>
+                      <p id="count__people">1</p>
+                      <svg class="more-people" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="29" height="29" fill="white" stroke="#3077C6" />
+                        <path
+                          d="M16.2822 15.1357H19.8506V16.6738H16.2822V20.7168H14.6475V16.6738H11.0791V15.1357H14.6475V11.4004H16.2822V15.1357Z"
+                          fill="#3077C6"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="child__age hidden">
+                  <p>What is the age of the child you’re travelling with?</p>
+                </div>
+              </div>
             </div>
-            <div class="swiper-button-next">
-              <img class="btn__next" src="src/img/arrow.png" alt="" />
+          </div>
+
+          <div class="page__search__mobile">
+            <div class="search__block__1">
+              <div class="search__mobile">
+                <img src="src/img/search.png" alt="search" />
+                <h5>
+                  <input class="country-info__input" type="text" placeholder="Your destination or hotel name" />
+                </h5>
+              </div>
             </div>
+            <div class="search__block__2">
+              <div class="search__mobile">
+                <p>Check-in date</p>
+                <h5><input type="text" placeholder="Tue 15 Sept 2020" /></h5>
+              </div>
+            </div>
+            <div class="search__block__3">
+              <div class="search__mobile">
+                <p>Check-out date</p>
+                <h5><input type="text" placeholder="Sat 19 Sept 2020" /></h5>
+              </div>
+            </div>
+            <div class="search__block__4">
+              <div class="search__mobile">
+                <div class="search__mini__block">
+                  <p>Adults</p>
+                  <h5><input type="number" placeholder="2" /></h5>
+                </div>
+                <div class="search__mini__block">
+                  <p>Children</p>
+                  <h5><input type="number" placeholder="0" /></h5>
+                </div>
+                <div class="search__mini__block">
+                  <p>Rooms</p>
+                  <h5><input type="number" placeholder="1" /></h5>
+                </div>
+              </div>
+            </div>
+            <div class="search__btn__mobile" id="search__btn2">
+              <input type="button" value="Search" />
+            </div>
+          </div>
+          <div class="page__adv">
+            <img src="src/img/google_play.png" alt="google_play" />
+            <img src="src/img/app_store.png" alt="app_store" />
+          </div>
+          <div class="arrow__down">
+            <img src="src/img/arrow-down.png" />
           </div>
         </div>
       </div>
-    <script src="src/js/jquery-3.6.0.min.js"></script>
-    <script src="src/js/swiper-bundle.min.js"></script>
-    <script src="src/js/main.js"></script>
+    </header>
+    <script type="module" src="src/js/main.js"></script>
   </body>
 </html>
